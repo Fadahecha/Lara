@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\factor\CategoryController;
 use App\Http\Controllers\factor\MainController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', MainController::class);
+
+// Route::get('/category', CategoryController::class);

@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     //
-    public function __invoke(Request $request)
+    public function __invoke()
     {
-        //SELECT * FROM terms
+        //SELECT * FROM terms;
         $terms = Terms::all();
-        // dd($terms);
+        //  dd($terms);
 
+        //SELECT * FROM terms WHERE category_id = ?
+        
 
 
         return view('factor.sections', compact('terms'));
