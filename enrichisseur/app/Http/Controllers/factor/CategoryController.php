@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     //
-    public function __invoke(Request $request)
-    {
+    // public function category(Request $request)
+    // {
  
-        $categories = Category::all();
-        // dd($categories);
-        $terms = Terms::all();
-        // dd($terms);
-        return view('factor.category', compact('categories', 'terms'));
-    }
+    //     $categories = Category::all();
+    //     // dd($categories);
+    //     $terms = Terms::all();
+    //     // dd($terms);
+    //     return view('factor.category', compact('categories', 'terms'));
+    // }
 }

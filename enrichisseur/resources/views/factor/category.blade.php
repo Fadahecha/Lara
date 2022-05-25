@@ -47,23 +47,23 @@
             </div>
             </form>
 
-        <section>
-            <div class="row">
-            <div class="form-group col-12">
-                <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Résultat !</h4>
-                <p id="data">
-                
-                    
-                </p>
-            </div>
-            </div>
-            </div>
-        </section>
+       
     
    </main> 
 @endforeach
-
+<section>
+    <div class="row">
+    <div class="form-group col-12">
+        <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Résultat !</h4>
+        <p id="data">
+        
+            
+        </p>
+    </div>
+    </div>
+    </div>
+</section>
 @endsection
 
 

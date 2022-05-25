@@ -22,4 +22,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', MainController::class);
 
-// Route::get('/category', CategoryController::class);
+Route::get('/category', [MainController::class, 'category']);

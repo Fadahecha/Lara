@@ -12,12 +12,19 @@
               
               
 
-                  @foreach ($terms as $term)
-                  
-                      <div class="col-12 col-md-6 col-lg-3">                      
-                        <input name="" type="checkbox" class="form-check-input lim1" id="base1" value="{{ $term->name_terms }}" />
-                        <label for="base1">{{ $term->category_id }}</label><br>                                                          
+                  @foreach ($categories as $category)
+
+                    {{ $category->name_category }}
+
+
+                    @foreach ($category->terms as $term )
+                    
+                       <div class="col-12 col-md-6 col-lg-3">                      
+                        <input name="" type="checkbox" class="form-check-input lim{{ $category->id }}" id="base1" value="{{ $term->name_terms }}" />
+                        <label for="base1">{{ $term->name_terms }}</label><br>                                                          
                       </div> 
+                    @endforeach
+                     
 
                   @endforeach
                             
@@ -28,10 +35,7 @@
               <div class="col-12">                   
                       <label for="sugestiona1">Suggestion N°1</label>
                       <input type="text" class="form-control" id="subase1"><br>
-                      <label for="sugestiona1">Suggestion N°2</label>
-                      <input type="text" class="form-control" id="subase2"><br>
-                      <label for="sugestiona1">Suggestion N°3</label>
-                      <input type="text" class="form-control" id="subase3"><br>                    
+                                      
               </div>
 
           </div>
