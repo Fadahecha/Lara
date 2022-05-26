@@ -38,29 +38,13 @@
                   <input type="text" id="motcle" class="form-control" placeholder="Môt-Clé" value="">
                 </li>
                 <br>
+
+                @foreach ($categories as $category )
                 <li>
-                   <a href="#base" class="btn btn-secondary "><span class="boton">Choisissez les bases</span></a> 
-                </li>
-                <br>
-                <li>
-                   <a href="#action" class="btn btn-secondary "><span class="boton">Choisissez les actions</span></a> 
-                </li>
-                <br>
-                <li>
-                   <a href="#objet" class="btn btn-secondary "><span class="boton">Choisissez les objets</span></a> 
-                </li>
-                <br>
-                <li>
-                   <a href="#perception" class="btn btn-secondary "><span class="boton">Choisissez les perceptions</span></a> 
-                </li>
-                <br>
-                <li>
-                   <a href="#situation" class="btn btn-secondary "><span class="boton">Choisissez les situations</span></a> 
-                </li>
-                <br>
-                <li>
-                   <a href="#qualification" class="btn btn-secondary "><span class="boton">Choisissez les qualifications</span></a> 
-                </li>
+                  <a href="#{{ $category->id-1 }}" class="btn btn-secondary "><span class="boton">Choisissez les {{ $category->name_category }}</span></a> 
+               </li>
+               <br>
+                @endforeach
             </ul>    
           </div>
           <!-- sidebar-menu  -->
@@ -70,7 +54,20 @@
       
       @yield('content')
     
-     
+      <section class="page-content fix" >
+        <div class="row">
+        <div class="form-group col-12">
+            <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Résultat !</h4>
+            <p id="data">
+            
+                
+            </p>
+        </div>
+        </div>
+        </div>
+    </section>
+    
         <footer class="text-center">
           <div class="mb-2">
             <small>
