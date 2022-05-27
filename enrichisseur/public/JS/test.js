@@ -48,7 +48,7 @@ function actualiser() {
 
     // let elementSelect = document.getElementById('select1');
 
-     requete.innerHTML='<h4></h4><h3><p>'+document.getElementById('motcle').value+" "+(document.getElementById('subase1').value||'  ')+
+     requete.innerHTML='<h4></h4><h3><p>'+document.getElementById('motcle').value+" "+(document.getElementById('sugest').value||'  ')+
     " "/*+(document.getElementById('subase2').value||'  ')*/+
     " "+(checkBoxSel||'  ')+'</p></h3>'
   
