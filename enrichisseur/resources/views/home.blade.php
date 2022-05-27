@@ -42,7 +42,7 @@
                 @foreach ($categories as $category )
                 <li>
                   <a href="#{{ $category->id-1 }}" class="btn btn-secondary "><span class="boton">Choisissez les {{ $category->name_category }}</span></a> 
-               </li>
+                </li>
                <br>
                 @endforeach
             </ul>    
