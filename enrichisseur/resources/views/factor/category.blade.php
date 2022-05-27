@@ -30,7 +30,7 @@
                     <h2 class="text-center py-5">Ou ajoutez votre propre suggestion</h2>                
                     <div class="col-12">                   
                             <label for="sugestiona1">Suggestion</label>
-                            <input type="text" class="form-control" id=""><br>
+                            <input type="text" class="form-control" id="sugest"><br>
                                                 
                     </div>
 
