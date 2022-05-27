@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('terms', function (Blueprint $table) {
+        Schema::table('phrases', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('keyword_id');
+            $table->foreign('keyword_id')->references('id')->on('keywords');
 
 
             Schema::enableForeignKeyConstraints();
@@ -30,10 +33,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('terms', function (Blueprint $table) {
+        Schema::table('phrases', function (Blueprint $table) {
             //
             Schema::disableForeignKeyConstraints();
-            $table->dropForeign(['category_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['keyword_id']);
         });
     }
 };
