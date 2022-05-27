@@ -56,7 +56,7 @@
     
       <section class="page-content fix" >
         <div class="row">
-          <form action="{{ route('phrase.store') }}" method="POST">
+          <form action="" method="">
         <div class="form-group col-12">
             <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Résultat !</h4>

@@ -25,4 +25,4 @@ Route::get('/', MainController::class);
 
 // Route::get('/category', [MainController::class, 'category']);
 
-Route::post('phrase.stocker', [PhraseController::class, 'store'])->name('phrase.store');
+// Route::post('phrase.stocker', [PhraseController::class, 'store'])->name('phrase.store');
