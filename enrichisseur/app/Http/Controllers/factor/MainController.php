@@ -4,6 +4,8 @@ namespace App\Http\Controllers\factor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Keyword;
+use App\Models\Phrase;
 use App\Models\Terms;
 use Illuminate\Http\Request;
 
@@ -20,13 +22,89 @@ class MainController extends Controller
         // $terms = Terms::where('category_id', 1)->get();
         $categories = Category::with('terms')->get();
 
-        return view('factor.category', compact('categories'));
+        return view('factor.category1', compact('categories'));
     }
 
     // public function category()
     // {
     //     return "test";
     // }
+
+    public function result1(Request $request){
+
+        $request->validate([
+            'keyword' => 'required'
+        ]);
+
+
+        $clickedterms = $request->clickedterms;
+        $keyword = $request->keyword;
+
+        //tomo todos los terminos que fueron clikados y creo una coleccion laravel con ellos
+        $terms = Terms::whereIn('id', $clickedterms)->get();
+        // dd($terms);
+        // dd($request->all());
+
+        ///////////////////////////////////
+        $skeyword = new Keyword();
+        $skeyword->name=$keyword;
+        $skeyword->save();
+        //////////////////////////////////
+
+        /////////////////////////////////
+        $sphrase = new Phrase();
+        $sphrase->keyword_id=$skeyword->id;
+        $sphrase->save();
+        //////////////////////////////////
+
+        
+        
+
+        //creo una nueba tabla para clasificar todo eso por categoria
+        $result = [];
+
+        $categories = Category::all();
+
+        foreach ($categories as $category){
+            $result[$category->id]['name']= null;
+        }
+
+        // $result[1]['name'] = null;
+        // $result[2]['name'] = null;
+        // $result[3]['name'] = null;
+        // $result[4]['name'] = null;
+        // $result[5]['name'] = null;
+        // $result[6]['name'] = null;
+
+        // dd($result);
+        
+
+        //este foreach va a llenar result[] y en cada linea habra una primera llave(category_id), la segunda los id de terms y la tercera los nombres de terms
+        foreach($terms as $term){
+           $result[$term->category_id][$term->id]=$term->name_terms;
+        }
+
+        //dd($result);
+
+        $phrases=[];
+
+        foreach($result[1] as $cat1){
+            foreach($result[2] as $cat2){
+                foreach($result[3] as $cat3){
+                    foreach($result[4] as $cat4){
+                        foreach($result[5] as $cat5){
+                            foreach($result[6] as $cat6){
+                                array_push($phrases, $cat1 .' '. $keyword . ' ' . $cat2 . ' ' . $cat3 . ' ' . $cat4 . ' ' . $cat5 . ' ' . $cat6);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+            
+        return view('result1', compact('keyword', 'clickedterms', 'terms', 'phrases'));
+    }
 }
 
 // Method with() on Eloquent model enables for you eager loading.

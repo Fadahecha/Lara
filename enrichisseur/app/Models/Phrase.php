@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Phrase extends Model
 {
     use HasFactory;
+
+    public function terms(){
+    
+        return $this->belongsToMany(Terms::class);
+    
+}
 }

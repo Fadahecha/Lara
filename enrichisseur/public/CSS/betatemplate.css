@@ -104,6 +104,12 @@
       padding-left: 300px;
     }
   }
+
+  @media screen and (min-width: 300px) {
+  .page-wrapper .page-content > div {
+    padding: 20px 40px !important;
+}
+  }
   /*----------------show sidebar button----------------*/
   #show-sidebar {
     position: fixed;
@@ -345,7 +351,8 @@
   /*-----------------------------chiller-theme-------------------------------------------------*/
   
   .chiller-theme .sidebar-wrapper {
-    background: #000;
+    background: #f4f4f4;
+    /* background: linear-gradient(45deg, #2937f0, #9f1ae2) !important; */
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-header,
@@ -419,3 +426,6 @@
     border-right: none;
 }
 
+#rond{
+  border-radius: 50%;
+}

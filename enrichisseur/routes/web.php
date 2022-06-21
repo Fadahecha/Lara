@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\factor\CategoryController;
+
 use App\Http\Controllers\factor\MainController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PhraseController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/blog', [PostController::class, 'index']);
 
 
-Route::get('/', MainController::class);
+Route::get('/', MainController::class)->name('home');
 
 // Route::get('/category', [MainController::class, 'category']);
 
 // Route::post('phrase.stocker', [PhraseController::class, 'store'])->name('phrase.store');
+
+Route::post('/result', [MainController::class, 'result1']);

@@ -14,4 +14,10 @@ class Terms extends Model
         return $this->belongsTo(Category::class);
         
     }
+
+    public function phrase(){
+    
+            return $this->belongsToMany(Phrase::class);
+        
+    }
 }
