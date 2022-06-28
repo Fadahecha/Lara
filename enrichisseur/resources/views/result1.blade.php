@@ -167,5 +167,6 @@
             </section>
         </div>
     </div>
+    <script src="{{ asset('JS/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

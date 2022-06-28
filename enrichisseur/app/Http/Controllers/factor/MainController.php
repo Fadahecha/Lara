@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\factor;
 
+use App\Exports\ResultExport;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Keyword;
@@ -9,6 +10,7 @@ use App\Models\Phrase;
 use App\Models\PhraseTerm;
 use App\Models\Terms;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MainController extends Controller
 {
@@ -49,12 +51,14 @@ class MainController extends Controller
         ///////////////////////////////////
         $skeyword = new Keyword();
         $skeyword->name=$keyword;
+        $skeyword->user_id=auth()->user()->id;
         $skeyword->save();
         //////////////////////////////////
 
         /////////////////////////////////
         $sphrase = new Phrase();
         $sphrase->keyword_id=$skeyword->id;
+        $sphrase->user_id=auth()->user()->id;
         $sphrase->save();
         //////////////////////////////////
 
@@ -174,8 +178,8 @@ class MainController extends Controller
 
 
         
-
-        return view('export', compact('keyword', 'clickedterms', 'terms', 'phrases'));
+            return Excel::download(new ResultExport($keyword, $clickedterms, $terms, $phrases), 'Export-'.$keyword.'.xlsx');
+        // return view('export', compact('keyword', 'clickedterms', 'terms', 'phrases'));
     }
 
 }
