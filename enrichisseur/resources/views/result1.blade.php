@@ -80,7 +80,7 @@
                                             
                                             <p class="text-muted mb-0 ">
                                                 
-                                                <span class="res roboto">
+                                                <span class="res">
                                                     <b class="">{{ $keyword }}</b> 
                                                     
                                                     @foreach ($terms as $term )
@@ -103,7 +103,7 @@
                                            
                                             <p class="text-muted mb-0">
                                                 
-                                                <span class="res roboto">
+                                                <span class="res ">
                                                     @foreach ($phrases as $phrase )
                                                        - {{ $phrase }} <br>
                                                     @endforeach
@@ -160,7 +160,7 @@
                 <div class="text-center mt-3">
                     <img class="img-bar" src="{{ asset('media/Logo-dolauriane-4.png') }}" alt=""><br>
                     <button type="button" class="btn boton text-light" onclick="window.location='{{ route("home") }}'">Accueil</button>
-                    <button type="button" class="btn boton text-light" onclick="window.location='{{ route("export", $sphrase->id) }}'">Export</button>
+                    <button type="button" class="btn boton text-light" onclick="window.location='{{ route("export", $sPhrase->id) }}'">Export</button>
                 </div>
                 </div>
                 

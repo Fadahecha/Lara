@@ -49,23 +49,23 @@ class MainController extends Controller
         // dd($request->all());
 
         ///////////////////////////////////
-        $skeyword = new Keyword();
-        $skeyword->name=$keyword;
-        $skeyword->user_id=auth()->user()->id;
-        $skeyword->save();
+        $sKeyword = new Keyword();
+        $sKeyword->name=$keyword;
+        $sKeyword->user_id=auth()->user()->id;
+        $sKeyword->save();
         //////////////////////////////////
 
         /////////////////////////////////
-        $sphrase = new Phrase();
-        $sphrase->keyword_id=$skeyword->id;
-        $sphrase->user_id=auth()->user()->id;
-        $sphrase->save();
+        $sPhrase = new Phrase();
+        $sPhrase->keyword_id=$sKeyword->id;
+        $sPhrase->user_id=auth()->user()->id;
+        $sPhrase->save();
         //////////////////////////////////
 
         foreach($clickedterms as $clickedterm){
 
             $sphraseTerms = new PhraseTerm();
-            $sphraseTerms->phrase_id=$sphrase->id;
+            $sphraseTerms->phrase_id=$sPhrase->id;
             $sphraseTerms->terms_id=$clickedterm;
             $sphraseTerms->timestamps = false;
             $sphraseTerms->save();
@@ -73,14 +73,10 @@ class MainController extends Controller
         
         
 
-        //creo una nueba tabla para clasificar todo eso por categoria
+        //creo una nueva tabla para clasificar todo eso por categoria
         $result = [];
 
         $categories = Category::all();
-
-        foreach ($categories as $category){
-            $result[$category->id]['name']= null;
-        }
 
         // $result[1]['name'] = null;
         // $result[2]['name'] = null;
@@ -89,6 +85,9 @@ class MainController extends Controller
         // $result[5]['name'] = null;
         // $result[6]['name'] = null;
 
+        foreach ($categories as $category){
+            $result[$category->id]['name']= null;
+        }
         // dd($result);
         
 
@@ -107,7 +106,9 @@ class MainController extends Controller
                     foreach($result[4] as $cat4){
                         foreach($result[5] as $cat5){
                             foreach($result[6] as $cat6){
-                                array_push($phrases, $cat1 .' '. $keyword . ' ' . $cat2 . ' ' . $cat3 . ' ' . $cat4 . ' ' . $cat5 . ' ' . $cat6);
+                                array_push($phrases, 
+                                $cat1 .' '. $keyword . ' ' . $cat2 . ' ' . 
+                                $cat3 . ' ' . $cat4 . ' ' . $cat5 . ' ' . $cat6);
                             }
                         }
                     }
@@ -116,7 +117,7 @@ class MainController extends Controller
         }
         
             
-        return view('result1', compact('keyword', 'clickedterms', 'terms', 'phrases', 'sphrase'));
+        return view('result1', compact('keyword', 'clickedterms', 'terms', 'phrases', 'sPhrase'));
     }
 
     public function export($phrase_id){

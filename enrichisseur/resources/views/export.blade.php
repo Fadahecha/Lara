@@ -16,7 +16,7 @@
     <p><b>Combinaisons:</b></p>
     <span>
         @foreach ($phrases as $phrase )
-        - {{ $phrase }} <br>
+         {{ $phrase }} <br>
         @endforeach
     </span>
 </div>
